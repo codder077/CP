@@ -1,0 +1,107 @@
+classDiagram
+    class Portfolio {
+        - title : String
+        - author : String
+        - date : Date
+        + display(): void
+    }
+
+    class AboutSection {
+        - biography : String
+        - qualifications : String
+        - workExperience : String
+        - interests : String
+        + displayInfo(): void
+    }
+
+    class ResumeSection {
+        - resumePDF : File
+        - careerObjectives : String
+        - keySkills : List<String>
+        + downloadResume(): void
+        + displaySummary(): void
+    }
+
+    class ProjectShowcase {
+        - projects : List<Project>
+        + displayProjects(): void
+    }
+
+    class Project {
+        - title : String
+        - description : String
+        - technologies : List<String>
+        - image : Image
+        - sourceLink : URL
+        - demoLink : URL
+        + displayProject(): void
+    }
+
+    class CodeLinesSection {
+        - codeSnippets : List<String>
+        + displayCodeSnippets(): void
+    }
+
+    class ContactForm {
+        - name : String
+        - email : String
+        - message : String
+        + validateFields(): boolean
+        + submitForm(): void
+    }
+
+    class ResponsiveLayout {
+        - layoutConfig : JSON
+        + adjustLayout(): void
+    }
+
+    class SearchFunctionality {
+        + search(keyword: String): List<Project>
+    }
+
+    class ProjectFilterSort {
+        + filterByCategory(category: String): List<Project>
+        + sortBy(criteria: String): List<Project>
+    }
+
+    class SkillDisplay {
+        - skills : List<Skill>
+        + displaySkills(): void
+    }
+
+    class Skill {
+        - name : String
+        - proficiency : String
+        + display(): void
+    }
+
+    class SocialMediaLinks {
+        - githubLink : URL
+        - linkedInLink : URL
+        + displayLinks(): void
+    }
+
+    class BlogSection {
+        - articles : List<Article>
+        + displayArticles(): void
+    }
+
+    class TestimonialsSection {
+        - testimonials : List<Testimonial>
+        + displayTestimonials(): void
+    }
+
+    Portfolio "1" --> "1" AboutSection
+    Portfolio "1" --> "1" ResumeSection
+    Portfolio "1" --> "1" ProjectShowcase
+    ProjectShowcase "1" --> "*" Project
+    Portfolio "1" --> "1" CodeLinesSection
+    Portfolio "1" --> "1" ContactForm
+    Portfolio "1" --> "1" ResponsiveLayout
+    Portfolio "1" --> "1" SearchFunctionality
+    Portfolio "1" --> "1" ProjectFilterSort
+    Portfolio "1" --> "1" SkillDisplay
+    SkillDisplay "1" --> "*" Skill
+    Portfolio "1" --> "1" SocialMediaLinks
+    Portfolio "1" --> "1" BlogSection
+    Portfolio "1" --> "1" TestimonialsSection
